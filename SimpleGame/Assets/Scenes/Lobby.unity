@@ -2346,6 +2346,7 @@ GameObject:
   - component: {fileID: 568606448}
   - component: {fileID: 568606449}
   - component: {fileID: 568606450}
+  - component: {fileID: 568606452}
   - component: {fileID: 568606451}
   m_Layer: 0
   m_Name: LobbyScript
@@ -2399,6 +2400,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loginPanel: {fileID: 568606448}
   makeGameCharacterPanel: {fileID: 568606450}
+  characterScreenPanel: {fileID: 568606451}
+  charactersScreenPanel: {fileID: 568606452}
 --- !u!114 &568606450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2423,12 +2426,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 568606446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36719aa2d029a2c4996f099d8d025d21, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ffc685d44c20c744be57b1ddb66c852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createGameCharacterButton: {fileID: 1597538159}
-  nicknameInputField: {fileID: 841966487}
-  makeGameCharacterPanel: {fileID: 199905990}
+  userNickname: {fileID: 263166640}
+  gameCharacterNickname: {fileID: 1651945799}
+  score: {fileID: 1519457243}
+  characterScreenPanel: {fileID: 1398742263}
+--- !u!114 &568606452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568606446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f02a1760fa0bf4c83c120e42a5c4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactersScreenPanel: {fileID: 1521123643}
 --- !u!1 &571898467
 GameObject:
   m_ObjectHideFlags: 0
@@ -5744,7 +5761,7 @@ GameObject:
   - component: {fileID: 1521123646}
   - component: {fileID: 1521123645}
   m_Layer: 5
-  m_Name: MembersScreen-Panel
+  m_Name: CharactersScreen-Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
