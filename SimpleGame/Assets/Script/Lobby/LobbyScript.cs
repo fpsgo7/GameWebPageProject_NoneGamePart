@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 로비 스크립트 로비의 전체적인 동작을 관리한다.
+/// </summary>
 public class LobbyScript : MonoBehaviour
 {
     public UILoginPanel loginPanel;

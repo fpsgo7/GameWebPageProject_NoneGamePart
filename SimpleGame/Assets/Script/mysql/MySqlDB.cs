@@ -4,6 +4,9 @@ using UnityEngine;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System;
+/// <summary>
+/// MySql과 연결하기위한 클래스
+/// </summary>
 public class MySqlDB
 {
     // DB 연결정보
