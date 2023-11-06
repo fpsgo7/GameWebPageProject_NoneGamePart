@@ -11,6 +11,7 @@ public class UIMakeGameCharacterPanel : MonoBehaviour
     public Button createGameCharacterButton;
     public InputField nicknameInputField;
     public GameObject makeGameCharacterPanel;
+    public GameObject createFaildPanel;
 
     public void SetActive(bool isBool)
     {

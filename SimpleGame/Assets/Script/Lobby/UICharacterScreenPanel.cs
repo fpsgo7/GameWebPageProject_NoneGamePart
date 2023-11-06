@@ -10,9 +10,9 @@ using UnityEngine.UI;
 /// </summary>
 public class UICharacterScreenPanel : MonoBehaviour
 {
-    public Text userNickname;
-    public Text gameCharacterNickname;
-    public Text score;
+    public Text userNicknameText;
+    public Text gameCharacterNicknameText;
+    public Text scoreText;
     public GameObject characterScreenPanel;
 
     public void SetActive(bool isBool)

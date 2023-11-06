@@ -30,8 +30,7 @@ public class LobbyScript : MonoBehaviour
             // 캐릭터가 이미 있을 경우 메인 화면으로 넘어간다.
             if (gameCharacterMysql.GetMyGameCharacter(UserInfo.Email)>0)
             {
-                characterScreenPanel.SetActive(true);
-                charactersScreenPanel.SetActive(true);
+                ActiveGameCharacterPanel();
             }
             // 없을 경우에는 케릭터 생성 화면으로 이동한다.
             else
@@ -53,6 +52,27 @@ public class LobbyScript : MonoBehaviour
     {
         string nickname = makeGameCharacterPanel.getNicknameInputField_Text();
         if (gameCharacterMysql.createGameCharacter(UserInfo.Email, nickname) == 1)
+        {
+            makeGameCharacterPanel.SetActive(false);
+            ActiveGameCharacterPanel();
+        }
+        else
+        {
+            // 생성 실패
+            makeGameCharacterPanel.createFaildPanel.SetActive(true);
+        }
+        
+    }
+
+    private void ActiveGameCharacterPanel()
+    {
+        // 활성화할 패널의 값들을 수정한후 보여준다.
+        // 게임 캐릭터 정보 가져오기
+        characterScreenPanel.userNicknameText.text = UserInfo.Nickname;
+        characterScreenPanel.gameCharacterNicknameText.text = GameCharacterInfo.Nickname;
+        characterScreenPanel.scoreText.text = string.Format("{0}", GameCharacterInfo.HighScore);
+
+        // 패널 활성화
         characterScreenPanel.SetActive(true);
         charactersScreenPanel.SetActive(true);
     }
