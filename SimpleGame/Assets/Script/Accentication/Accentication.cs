@@ -31,8 +31,8 @@ public class Accentication : MySqlDB
                 UserInfo.Password = (string)mySqlDataReader["password"];
                 UserInfo.Nickname = (string)mySqlDataReader["nickname"];
                 // 로그인 정보 입력 확인
-                Debug.LogFormat("id={0} email={1} password={2} nickname={3}",
-                    UserInfo.Id, UserInfo.Email, UserInfo.Password, UserInfo.Nickname);
+                //Debug.LogFormat("id={0} email={1} password={2} nickname={3}",
+                //    UserInfo.Id, UserInfo.Email, UserInfo.Password, UserInfo.Nickname);
             }
             DisConnect();
             return UserInfo.Id;

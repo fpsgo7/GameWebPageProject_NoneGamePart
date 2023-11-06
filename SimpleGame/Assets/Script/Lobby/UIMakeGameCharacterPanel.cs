@@ -12,6 +12,10 @@ public class UIMakeGameCharacterPanel : MonoBehaviour
     public InputField nicknameInputField;
     public GameObject makeGameCharacterPanel;
 
+    public void SetActive(bool isBool)
+    {
+        makeGameCharacterPanel.SetActive(isBool);
+    }
     public string getNicknameInputField_Text()
     {
         return nicknameInputField.text;

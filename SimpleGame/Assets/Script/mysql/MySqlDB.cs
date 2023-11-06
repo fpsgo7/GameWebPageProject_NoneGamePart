@@ -34,7 +34,7 @@ public class MySqlDB
             conn = new MySqlConnection(sqlDatabase);
             conn.Open();
             //접속이 되면 OPEN이라고 나타남
-            Debug.Log("SQL의 접속 상태 : " + conn.State);
+            //Debug.Log("SQL의 접속 상태 : " + conn.State);
         }
         catch (Exception msg)
         {
@@ -49,7 +49,7 @@ public class MySqlDB
     {
         conn.Close();
         //접속이 끊기면 Close가 나타남 
-        Debug.Log("SQL의 접속 상태 : " + conn.State);
+        //Debug.Log("SQL의 접속 상태 : " + conn.State);
     }
 
 }

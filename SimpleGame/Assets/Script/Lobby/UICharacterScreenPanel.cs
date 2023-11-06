@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+/// <summary>
+/// 자신의 캐릭터를 보여주기위한 
+/// 패널의 오브젝트들을 접근하기위한 
+/// 스크립트
+/// </summary>
 public class UICharacterScreenPanel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Text userNickname;
+    public Text gameCharacterNickname;
+    public Text score;
+    public GameObject characterScreenPanel;
 
-    // Update is called once per frame
-    void Update()
+    public void SetActive(bool isBool)
     {
-        
+        characterScreenPanel.SetActive(isBool);
     }
 }

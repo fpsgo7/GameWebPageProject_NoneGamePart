@@ -27,8 +27,8 @@ public class GameCharacterMysql : MySqlDB
                 GameCharacterInfo.Nickname = (string)mySqlDataReader["nickname"];
                 GameCharacterInfo.HighScore = (int)mySqlDataReader["high_score"];
                 // 캐릭터 정보 입력 확인
-                Debug.LogFormat("캐릭터 정보 확인 id={0} email={1} nickname={2} score={3}",
-                    GameCharacterInfo.Id, GameCharacterInfo.Email, GameCharacterInfo.Nickname, GameCharacterInfo.HighScore);
+                //Debug.LogFormat("캐릭터 정보 확인 id={0} email={1} nickname={2} score={3}",
+                //    GameCharacterInfo.Id, GameCharacterInfo.Email, GameCharacterInfo.Nickname, GameCharacterInfo.HighScore);
             }
             DisConnect();
             return GameCharacterInfo.Id;

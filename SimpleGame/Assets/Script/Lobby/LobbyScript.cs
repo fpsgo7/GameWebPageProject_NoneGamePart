@@ -9,6 +9,8 @@ public class LobbyScript : MonoBehaviour
 {
     public UILoginPanel loginPanel;
     public UIMakeGameCharacterPanel makeGameCharacterPanel;
+    public UICharacterScreenPanel characterScreenPanel;
+    public UICharactersScreenPanel charactersScreenPanel;
 
     public Accentication accentication = new Accentication();
     public GameCharacterMysql gameCharacterMysql = new GameCharacterMysql();
@@ -24,16 +26,17 @@ public class LobbyScript : MonoBehaviour
         {
             // 로그인 성공
             // 로그인 화면 닫기
-            loginPanel.loginPanel.SetActive(false);
+            loginPanel.SetActive(false);
             // 캐릭터가 이미 있을 경우 메인 화면으로 넘어간다.
             if (gameCharacterMysql.GetMyGameCharacter(UserInfo.Email)>0)
             {
-                Debug.Log("메인 화면으로");
+                characterScreenPanel.SetActive(true);
+                charactersScreenPanel.SetActive(true);
             }
             // 없을 경우에는 케릭터 생성 화면으로 이동한다.
             else
             {
-                makeGameCharacterPanel.makeGameCharacterPanel.SetActive(true);
+                makeGameCharacterPanel.SetActive(true);
             }
             
 
@@ -50,7 +53,7 @@ public class LobbyScript : MonoBehaviour
     {
         string nickname = makeGameCharacterPanel.getNicknameInputField_Text();
         if (gameCharacterMysql.createGameCharacter(UserInfo.Email, nickname) == 1)
-            Debug.Log("메인 화면으로");
-        
+        characterScreenPanel.SetActive(true);
+        charactersScreenPanel.SetActive(true);
     }
 }

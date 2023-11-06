@@ -14,6 +14,10 @@ public class UILoginPanel : MonoBehaviour
     public GameObject loginErrorPanel;
     public GameObject loginPanel;
 
+    public void SetActive(bool isBool)
+    {
+        loginPanel.SetActive(isBool);
+    }
     public string getEmailInputField_Text()
     {
         return emailInpuField.text;
