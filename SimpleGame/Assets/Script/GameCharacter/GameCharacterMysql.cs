@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 
 public class GameCharacterMysql : MySqlDB
 {
@@ -65,6 +66,59 @@ public class GameCharacterMysql : MySqlDB
         {
             Debug.Log(e.Message);
             return -1;
+        }
+    }
+
+    /// <summary>
+    /// 점수 순서대로 정보를 가져올 것
+    /// </summary>
+    /// <returns></returns>
+    public List<GameCharacterRankInfo> getGameCharacterRankInfos()
+    {
+        List<GameCharacterRankInfo> gameCharacterRankInfos
+            = new List<GameCharacterRankInfo>();
+       
+        string sqlQuery = "SELECT * FROM  gamecharacters ORDER BY high_score DESC";
+
+        connect();
+        // connect()메서드에서 conn의 객체를 생성하므로 connect()뒤에 사용할것
+        MySqlCommand cmd = new MySqlCommand(sqlQuery, getConn());
+        try
+        {
+            MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
+            int count = 0;
+            int rankCount = 1;
+            while (mySqlDataReader.Read())
+            {
+                GameCharacterRankInfo gameCharacterRankInfo
+                    = new GameCharacterRankInfo();
+                //gameCharacterRankInfo.Rank = ++rankCount;
+                gameCharacterRankInfo.Email = (string)mySqlDataReader["email"];
+                gameCharacterRankInfo.Nickname = (string)mySqlDataReader["nickname"];
+                gameCharacterRankInfo.HighScore = (int)mySqlDataReader["high_score"];
+                if (count > 0)
+                {
+                    if (gameCharacterRankInfos[count - 1].HighScore == gameCharacterRankInfo.HighScore)
+                        gameCharacterRankInfo.Rank = rankCount;
+                    else
+                        gameCharacterRankInfo.Rank = ++rankCount;
+                }
+                else
+                {
+                    gameCharacterRankInfo.Rank = rankCount;
+                }
+                gameCharacterRankInfos.Add(gameCharacterRankInfo);
+                count++;
+            }
+            DisConnect();
+            return gameCharacterRankInfos;
+
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+            DisConnect();
+            return null;
         }
     }
 }

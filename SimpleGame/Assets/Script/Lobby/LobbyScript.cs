@@ -15,6 +15,9 @@ public class LobbyScript : MonoBehaviour
     public Accentication accentication = new Accentication();
     public GameCharacterMysql gameCharacterMysql = new GameCharacterMysql();
 
+    public GameObject gridSetting;
+    public GameObject gameCharacterRankPrefab;
+
     /// <summary>
     /// 로그인 버튼이 클릭된다.
     /// </summary>
@@ -71,9 +74,32 @@ public class LobbyScript : MonoBehaviour
         characterScreenPanel.userNicknameText.text = UserInfo.Nickname;
         characterScreenPanel.gameCharacterNicknameText.text = GameCharacterInfo.Nickname;
         characterScreenPanel.scoreText.text = string.Format("{0}", GameCharacterInfo.HighScore);
+        // 게임 랭크 구현하기 
+        List<GameCharacterRankInfo> gameCharacterRankInfos
+            = gameCharacterMysql.getGameCharacterRankInfos();
+        List<GameObject> gameCharacterRankObjects = new List<GameObject>();
+        foreach(GameCharacterRankInfo gameCharacterRankInfo in gameCharacterRankInfos)
+        {
+            GameObject rankGameObject
+                = Instantiate<GameObject>(gameCharacterRankPrefab, gridSetting.transform);
+            gameCharacterRankObjects.Add(rankGameObject);
+        }
+        for(int i =0; i< gameCharacterRankObjects.Count; i++)
+        {
+            UICharacterRankPanel rankItem = gameCharacterRankObjects[i].GetComponent<UICharacterRankPanel>();
+            rankItem.Init(
+                gameCharacterRankInfos[i].Rank + "",
+                gameCharacterRankInfos[i].Email,
+                gameCharacterRankInfos[i].Nickname,
+                gameCharacterRankInfos[i].HighScore + ""
+                );
 
+        }
+        
         // 패널 활성화
         characterScreenPanel.SetActive(true);
         charactersScreenPanel.SetActive(true);
     }
+
+
 }
