@@ -14,6 +14,7 @@ public class LobbyScript : MonoBehaviour
 
     public Accentication accentication = new Accentication();
     public GameCharacterMysql gameCharacterMysql = new GameCharacterMysql();
+    public GameHighScoreMysql gameHighScoreMysql = new GameHighScoreMysql();
 
     public GameObject gridSetting;
     public GameObject gameCharacterRankPrefab;
@@ -71,20 +72,36 @@ public class LobbyScript : MonoBehaviour
     {
         // 활성화할 패널의 값들을 수정한후 보여준다.
         // 게임 캐릭터 정보 가져오기
+        getGameCharacterInfo();
+
+        // 게임 랭크 구현하기 
+        getGameRankInfo();
+       
+        
+        // 패널 활성화
+        characterScreenPanel.SetActive(true);
+        charactersScreenPanel.SetActive(true);
+    }
+
+    private void getGameCharacterInfo()
+    {
         characterScreenPanel.userNicknameText.text = UserInfo.Nickname;
         characterScreenPanel.gameCharacterNicknameText.text = GameCharacterInfo.Nickname;
         characterScreenPanel.scoreText.text = string.Format("{0}", GameCharacterInfo.HighScore);
-        // 게임 랭크 구현하기 
+    }
+
+    private void getGameRankInfo()
+    {
         List<GameCharacterRankInfo> gameCharacterRankInfos
-            = gameCharacterMysql.getGameCharacterRankInfos();
+           = gameHighScoreMysql.getGameCharacterRankInfos();
         List<GameObject> gameCharacterRankObjects = new List<GameObject>();
-        foreach(GameCharacterRankInfo gameCharacterRankInfo in gameCharacterRankInfos)
+        foreach (GameCharacterRankInfo gameCharacterRankInfo in gameCharacterRankInfos)
         {
             GameObject rankGameObject
                 = Instantiate<GameObject>(gameCharacterRankPrefab, gridSetting.transform);
             gameCharacterRankObjects.Add(rankGameObject);
         }
-        for(int i =0; i< gameCharacterRankObjects.Count; i++)
+        for (int i = 0; i < gameCharacterRankObjects.Count; i++)
         {
             UICharacterRankPanel rankItem = gameCharacterRankObjects[i].GetComponent<UICharacterRankPanel>();
             rankItem.Init(
@@ -95,11 +112,5 @@ public class LobbyScript : MonoBehaviour
                 );
 
         }
-        
-        // 패널 활성화
-        characterScreenPanel.SetActive(true);
-        charactersScreenPanel.SetActive(true);
     }
-
-
 }
