@@ -40,6 +40,7 @@ public class Accentication : MySqlDB
         }catch(Exception e)
         {
             Debug.Log(e.Message);
+            DisConnect();
             return -1;
         }
         
