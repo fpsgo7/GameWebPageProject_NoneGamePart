@@ -5,6 +5,8 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using System;
 
+
+
 /// <summary>
 /// 회원 관련 기능 클래스
 /// </summary>
@@ -14,8 +16,9 @@ public class Accentication : MySqlDB
     /// <summary>
     /// 로그인 기능
     /// </summary>
-    public int Login(string email , string password)
+    public long Login(string email , string password)
     {
+
         connect();
         string sqlQuery = String.Format("SELECT * FROM users " +
             "where email = '{0}' AND password = '{1}'", email,password);
@@ -25,8 +28,7 @@ public class Accentication : MySqlDB
             MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
             while (mySqlDataReader.Read())
             {
-
-                UserInfo.Id = (int)mySqlDataReader["id"];
+                UserInfo.Id = (long)mySqlDataReader["id"];
                 UserInfo.Email = (string)mySqlDataReader["email"];
                 UserInfo.Password = (string)mySqlDataReader["password"];
                 UserInfo.Nickname = (string)mySqlDataReader["nickname"];

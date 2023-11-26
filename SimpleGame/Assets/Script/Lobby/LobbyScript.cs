@@ -51,7 +51,9 @@ public class LobbyScript : MonoBehaviour
         }
 
     }
-
+    /// <summary>
+    /// 캐릭터 생성 버튼 클릭
+    /// </summary>
     public void CreateCharacterButton_Click()
     {
         string nickname = makeGameCharacterPanel.getNicknameInputField_Text();
@@ -67,7 +69,9 @@ public class LobbyScript : MonoBehaviour
         }
         
     }
-
+    /// <summary>
+    /// 게임캐릭터 패널 오픈
+    /// </summary>
     private void ActiveGameCharacterPanel()
     {
         // 활성화할 패널의 값들을 수정한후 보여준다.
@@ -82,7 +86,9 @@ public class LobbyScript : MonoBehaviour
         characterScreenPanel.SetActive(true);
         charactersScreenPanel.SetActive(true);
     }
-
+    /// <summary>
+    /// 패널에 게임 캐릭터 정보 보여주기
+    /// </summary>
     private void getGameCharacterInfo()
     {
         characterScreenPanel.userNicknameText.text = UserInfo.Nickname;
@@ -90,6 +96,9 @@ public class LobbyScript : MonoBehaviour
         characterScreenPanel.scoreText.text = string.Format("{0}", GameCharacterInfo.HighScore);
     }
 
+    /// <summary>
+    /// 패널에 게임 캐릭터 랭크 정보 보여주기
+    /// </summary>
     private void getGameRankInfo()
     {
         List<GameCharacterRankInfo> gameCharacterRankInfos

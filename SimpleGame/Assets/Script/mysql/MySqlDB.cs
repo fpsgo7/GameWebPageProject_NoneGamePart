@@ -11,10 +11,10 @@ public class MySqlDB
 {
     // DB 연결정보
     private MySqlConnection conn = null;
-    private string DBip = "127.0.0.1";// 로컬 호스트 ip
-    private string DBname = "mywebgameproject";// db 이름
-    private string DBid = "root"; // 관리자 id
-    private string DBpw = "1234"; // 관리자 비번
+    private string DBip = "RDS_END_POINT";// 로컬 호스트 ip
+    private string DBname = "RDS_DB_NAME";// db 이름
+    private string DBid = "RDS_USER"; // 관리자 id
+    private string DBpw = "RDS_PW"; // 관리자 비번
 
     protected MySqlConnection getConn()
     {
@@ -31,7 +31,6 @@ public class MySqlDB
         //접속하기
         try
         {
-            conn = new MySqlConnection(sqlDatabase);
             conn.Open();
             //접속이 되면 OPEN이라고 나타남
             //Debug.Log("SQL의 접속 상태 : " + conn.State);

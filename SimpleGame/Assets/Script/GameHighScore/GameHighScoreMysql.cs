@@ -23,15 +23,15 @@ public class GameHighScoreMysql : MySqlDB
         try
         {
             MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
-            int rankCount = 1;
+            long rankCount = 1;
             while (mySqlDataReader.Read())
             {
                 GameCharacterRankInfo gameCharacterRankInfo
                     = new GameCharacterRankInfo();
                 gameCharacterRankInfo.Rank = rankCount++;
                 gameCharacterRankInfo.Email = (string)mySqlDataReader["email"];
-                gameCharacterRankInfo.Nickname = (string)mySqlDataReader["nickname"];
-                gameCharacterRankInfo.HighScore = (int)mySqlDataReader["high_score"];
+                gameCharacterRankInfo.Nickname = (string)mySqlDataReader["game_character_nickname"];
+                gameCharacterRankInfo.HighScore = (long)mySqlDataReader["high_score"];
                 gameCharacterRankInfo.LastedTime = (DateTime)mySqlDataReader["lasted_time"];
                 gameCharacterRankInfos.Add(gameCharacterRankInfo);
             }
