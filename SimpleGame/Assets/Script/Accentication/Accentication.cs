@@ -18,13 +18,59 @@ public class Accentication : MySqlDB
     /// </summary>
     public long Login(string email , string password)
     {
-
+        // 비밀번호가 틀릴경우
+        if (!CheckPassword(email, password))
+            return -1;
+        // 유저 정보 반환하기
+        return SetUserInfo(email);
+       
+    }
+    /// <summary>
+    /// 비밀번호 체크하기
+    /// 암호화된 값을 복호화하여 체크한다.
+    /// </summary>
+    private bool CheckPassword(string email,string password)
+    {
+        string realPassword=null;
         connect();
+
         string sqlQuery = String.Format("SELECT * FROM users " +
-            "where email = '{0}' AND password = '{1}'", email,password);
+           "where email = '{0}'", email);
         MySqlCommand cmd = new MySqlCommand(sqlQuery, getConn());
 
-        try{
+        try
+        {
+            MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
+            while (mySqlDataReader.Read())
+            {
+                realPassword = (string)mySqlDataReader["password"];
+            }
+            DisConnect();
+
+            if (BCrypt.Net.BCrypt.Verify(password, realPassword))
+                return true;
+            else
+                return false;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+            DisConnect();
+            return false;
+        }
+    }
+    /// <summary>
+    /// Static 클래스 UserInfo에 값 할당하기
+    /// </summary>
+    private long SetUserInfo(string email)
+    {
+        connect();
+        string sqlQuery = String.Format("SELECT * FROM users " +
+            "where email = '{0}'", email);
+        MySqlCommand cmd = new MySqlCommand(sqlQuery, getConn());
+
+        try
+        {
             MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
             while (mySqlDataReader.Read())
             {
@@ -38,13 +84,12 @@ public class Accentication : MySqlDB
             }
             DisConnect();
             return UserInfo.Id;
-            
-        }catch(Exception e)
+        }
+        catch (Exception e)
         {
             Debug.Log(e.Message);
             DisConnect();
             return -1;
         }
-        
     }
 }
