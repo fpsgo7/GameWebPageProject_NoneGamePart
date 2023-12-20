@@ -70,4 +70,31 @@ public class GameCharacterMysql : MySqlDB
             return -1;
         }
     }
+
+    /// <summary>
+    /// 최고점수 업데이트하기
+    /// </summary>
+    public int updateGameCharacter_highScore(int score, string email)
+    {
+        connect();
+        // UPDATE game_characters SET `high_score` = '20' WHERE(`email` = '1@1');
+        string sqlQuery = String.Format("UPDATE game_characters SET " +
+            "`high_score` = '{0}' WHERE(`email` = '{1}')"
+           , score, email);
+        MySqlCommand cmd = new MySqlCommand(sqlQuery, getConn());
+
+        try
+        {
+            MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
+            DisConnect();
+            return score;
+
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+            DisConnect();
+            return -1;
+        }
+    }
 }

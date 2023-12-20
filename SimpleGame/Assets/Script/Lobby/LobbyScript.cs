@@ -1,9 +1,9 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ·Îºñ ½ºÅ©¸³Æ® ·ÎºñÀÇ ÀüÃ¼ÀûÀÎ µ¿ÀÛÀ» °ü¸®ÇÑ´Ù.
+/// ï¿½Îºï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 /// </summary>
 public class LobbyScript : MonoBehaviour
 {
@@ -17,11 +17,11 @@ public class LobbyScript : MonoBehaviour
     public GameHighScoreMysql gameHighScoreMysql = new GameHighScoreMysql();
 
 
-    private List<GameCharacterRankInfo> gameCharacterRankInfos;    // °ÔÀÓ ·©Å© Á¤º¸µéÀ» ´ã´Â ¸®½ºÆ®
-    private List<GameObject> gameCharacterRankObjects; // °ÔÀÓ ·©Å© Á¤º¸µéÀ» À§ÇÑ °ÔÀÓ¿ÀºêÁ§Æ® ¸®½ºÆ® 
+    private List<GameCharacterRankInfo> gameCharacterRankInfos;    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+    private List<GameObject> gameCharacterRankObjects; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® 
 
     /// <summary>
-    /// ·Î±×ÀÎ ¹öÆ°ÀÌ Å¬¸¯µÈ´Ù.
+    /// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½È´ï¿½.
     /// </summary>
     public void LoginButton_Click()
     {
@@ -29,15 +29,15 @@ public class LobbyScript : MonoBehaviour
         string password = loginPanel.getPasswordInputField_Text();
         if (accentication.Login(email, password)>0)
         {
-            // ·Î±×ÀÎ ¼º°ø
-            // ·Î±×ÀÎ È­¸é ´Ý±â
+            // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            // ï¿½Î±ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½Ý±ï¿½
             loginPanel.SetActive(false);
-            // Ä³¸¯ÅÍ°¡ ÀÌ¹Ì ÀÖÀ» °æ¿ì ¸ÞÀÎ È­¸éÀ¸·Î ³Ñ¾î°£´Ù.
+            // Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°£ï¿½ï¿½.
             if (gameCharacterMysql.GetMyGameCharacter(UserInfo.Email)>0)
             {
                 ActiveGameCharacterPanel();
             }
-            // ¾øÀ» °æ¿ì¿¡´Â ÄÉ¸¯ÅÍ »ý¼º È­¸éÀ¸·Î ÀÌµ¿ÇÑ´Ù.
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ñ´ï¿½.
             else
             {
                 makeGameCharacterPanel.SetActive(true);
@@ -47,13 +47,13 @@ public class LobbyScript : MonoBehaviour
         }
         else
         {
-            // ·Î±×ÀÎ ½ÇÆÐ
+            // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             loginPanel.loginErrorPanel.SetActive(true);
         }
 
     }
     /// <summary>
-    /// Ä³¸¯ÅÍ »ý¼º ¹öÆ° Å¬¸¯
+    /// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½
     /// </summary>
     public void CreateCharacterButton_Click()
     {
@@ -65,30 +65,30 @@ public class LobbyScript : MonoBehaviour
         }
         else
         {
-            // »ý¼º ½ÇÆÐ
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             makeGameCharacterPanel.createFaildPanel.SetActive(true);
         }
         
     }
     /// <summary>
-    /// °ÔÀÓÄ³¸¯ÅÍ ÆÐ³Î ¿ÀÇÂ
+    /// ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     private void ActiveGameCharacterPanel()
     {
-        // È°¼ºÈ­ÇÒ ÆÐ³ÎÀÇ °ªµéÀ» ¼öÁ¤ÇÑÈÄ º¸¿©ÁØ´Ù.
-        // °ÔÀÓ Ä³¸¯ÅÍ Á¤º¸ °¡Á®¿À±â
+        // È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
+        // ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         getGameCharacterInfo();
 
-        // °ÔÀÓ ·©Å© ±¸ÇöÇÏ±â 
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ 
         getGameRankInfo();
        
         
-        // ÆÐ³Î È°¼ºÈ­
+        // ï¿½Ð³ï¿½ È°ï¿½ï¿½È­
         characterScreenPanel.SetActive(true);
         charactersScreenPanel.SetActive(true);
     }
     /// <summary>
-    /// ÆÐ³Î¿¡ °ÔÀÓ Ä³¸¯ÅÍ Á¤º¸ º¸¿©ÁÖ±â
+    /// ï¿½Ð³Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
     /// </summary>
     private void getGameCharacterInfo()
     {
@@ -98,14 +98,14 @@ public class LobbyScript : MonoBehaviour
     }
 
     /// <summary>
-    /// ÆÐ³Î¿¡ °ÔÀÓ Ä³¸¯ÅÍ ·©Å© Á¤º¸ º¸¿©ÁÖ±â
+    /// ï¿½Ð³Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
     /// </summary>
     private void getGameRankInfo()
     {
-        // °ÔÀÓ ·©Å© Á¤º¸µéÀ» ´ã´Â ¸®½ºÆ®
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
         gameCharacterRankInfos
            = gameHighScoreMysql.getGameCharacterRankInfos();
-        // °ÔÀÓ ·©Å© Á¤º¸µéÀ» À§ÇÑ °ÔÀÓ¿ÀºêÁ§Æ® ¸®½ºÆ® 
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® 
         gameCharacterRankObjects = new List<GameObject>();
         foreach (GameCharacterRankInfo gameCharacterRankInfo in gameCharacterRankInfos)
         {
@@ -126,7 +126,7 @@ public class LobbyScript : MonoBehaviour
         }
     }
     /// <summary>
-    /// Á¡¼ö ÀÔ·Â ¹öÆ° Å¬¸¯
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½
     /// </summary>
     public void InputScoreButton_Click()
     {
@@ -138,15 +138,22 @@ public class LobbyScript : MonoBehaviour
                 characterScreenPanel.inputGameScoreFaildText.SetActive(true);
             }
         }
+        // ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        int score = gameCharacterMysql.updateGameCharacter_highScore(newScore, UserInfo.Email);
+        if(score != -1)
+        {
+            GameCharacterInfo.HighScore = score;
+        }
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½Ï±ï¿½
         GameRankRefreshButton_Click();
     }
 
     /// <summary>
-    /// °ÔÀÓ·©Å© ´Ù½Ã ¾÷·Îµå ¹öÆ° Å¬¸¯
+    /// ï¿½ï¿½ï¿½Ó·ï¿½Å© ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½
     /// </summary>
     public void GameRankRefreshButton_Click()
     {
-        // °ÔÀÓ ·©Å© Á¤º¸¸¦ ´Ù½Ã °¡Á®¿Â´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
         gameCharacterRankInfos
            = gameHighScoreMysql.getGameCharacterRankInfos();
         for (int i = 0; i < gameCharacterRankInfos.Count; i++)
@@ -158,7 +165,7 @@ public class LobbyScript : MonoBehaviour
                     gameCharacterRankObjects.Add(rankGameObject);
             }
             UICharacterRankPanel rankItem = gameCharacterRankObjects[i].GetComponent<UICharacterRankPanel>();
-            // °ª ÃÊ±âÈ­
+            // ï¿½ï¿½ ï¿½Ê±ï¿½È­
             rankItem.Init(
                 gameCharacterRankInfos[i].Rank + "",
                 gameCharacterRankInfos[i].Email,
@@ -166,5 +173,7 @@ public class LobbyScript : MonoBehaviour
                 gameCharacterRankInfos[i].HighScore + ""
                 );
         }
+
+        characterScreenPanel.scoreText.text = string.Format("{0}", GameCharacterInfo.HighScore);
     }
 }
