@@ -16,8 +16,9 @@ public class LobbyScript : MonoBehaviour
     public GameCharacterMysql gameCharacterMysql = new GameCharacterMysql();
     public GameHighScoreMysql gameHighScoreMysql = new GameHighScoreMysql();
 
-    public GameObject gridSetting;
-    public GameObject gameCharacterRankPrefab;
+
+    private List<GameCharacterRankInfo> gameCharacterRankInfos;    // 게임 랭크 정보들을 담는 리스트
+    private List<GameObject> gameCharacterRankObjects; // 게임 랭크 정보들을 위한 게임오브젝트 리스트 
 
     /// <summary>
     /// 로그인 버튼이 클릭된다.
@@ -101,13 +102,15 @@ public class LobbyScript : MonoBehaviour
     /// </summary>
     private void getGameRankInfo()
     {
-        List<GameCharacterRankInfo> gameCharacterRankInfos
+        // 게임 랭크 정보들을 담는 리스트
+        gameCharacterRankInfos
            = gameHighScoreMysql.getGameCharacterRankInfos();
-        List<GameObject> gameCharacterRankObjects = new List<GameObject>();
+        // 게임 랭크 정보들을 위한 게임오브젝트 리스트 
+        gameCharacterRankObjects = new List<GameObject>();
         foreach (GameCharacterRankInfo gameCharacterRankInfo in gameCharacterRankInfos)
         {
             GameObject rankGameObject
-                = Instantiate<GameObject>(gameCharacterRankPrefab, gridSetting.transform);
+                = Instantiate<GameObject>(charactersScreenPanel.gameCharacterRankPrefab, charactersScreenPanel.gridSetting.transform);
             gameCharacterRankObjects.Add(rankGameObject);
         }
         for (int i = 0; i < gameCharacterRankObjects.Count; i++)
@@ -122,16 +125,46 @@ public class LobbyScript : MonoBehaviour
 
         }
     }
-
+    /// <summary>
+    /// 점수 입력 버튼 클릭
+    /// </summary>
     public void InputScoreButton_Click()
     {
         int newScore = int.Parse(characterScreenPanel.gameScoreInputField.text);
-        if (gameHighScoreMysql.createGameHighScore(UserInfo.Email, GameCharacterInfo.Nickname) != 1)
+        if (gameHighScoreMysql.createGameHighScore(UserInfo.Email, GameCharacterInfo.Nickname, newScore) != 1)
         {
             if(gameHighScoreMysql.updateGameScore(UserInfo.Email, newScore) != 1)
             {
                 characterScreenPanel.inputGameScoreFaildText.SetActive(true);
             }
+        }
+        GameRankRefreshButton_Click();
+    }
+
+    /// <summary>
+    /// 게임랭크 다시 업로드 버튼 클릭
+    /// </summary>
+    public void GameRankRefreshButton_Click()
+    {
+        // 게임 랭크 정보를 다시 가져온다.
+        gameCharacterRankInfos
+           = gameHighScoreMysql.getGameCharacterRankInfos();
+        for (int i = 0; i < gameCharacterRankInfos.Count; i++)
+        {
+            if(i >= gameCharacterRankObjects.Count)
+            {
+                GameObject rankGameObject
+                = Instantiate<GameObject>(charactersScreenPanel.gameCharacterRankPrefab, charactersScreenPanel.gridSetting.transform);
+                    gameCharacterRankObjects.Add(rankGameObject);
+            }
+            UICharacterRankPanel rankItem = gameCharacterRankObjects[i].GetComponent<UICharacterRankPanel>();
+            // 값 초기화
+            rankItem.Init(
+                gameCharacterRankInfos[i].Rank + "",
+                gameCharacterRankInfos[i].Email,
+                gameCharacterRankInfos[i].Nickname,
+                gameCharacterRankInfos[i].HighScore + ""
+                );
         }
     }
 }

@@ -49,15 +49,15 @@ public class GameHighScoreMysql : MySqlDB
     /// <summary>
     /// 점수 추가하기
     /// </summary>
-    public int createGameHighScore(String email, string nickname)
+    public int createGameHighScore(String email, string nickname, int newScore)
     {
         connect();
         // sql 문 예
         //INSERT INTO `game_high_scores` (`email`, `game_character_nickname`, `high_score`) VALUES ('1@1', '111', '1');
         string sqlQuery = String.Format("INSERT INTO game_high_scores " +
-           " (`email`, `nickname`, `high_score`)" +
-           "VALUES('{0}', '{1}', 0)"
-           , email, nickname);
+           " (`email`, `game_character_nickname`, `high_score`)" +
+           "VALUES('{0}', '{1}', {2})"
+           , email, nickname,newScore);
         MySqlCommand cmd = new MySqlCommand(sqlQuery, getConn());
         try
         {

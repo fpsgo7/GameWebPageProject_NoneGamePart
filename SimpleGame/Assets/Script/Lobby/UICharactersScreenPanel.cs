@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class UICharactersScreenPanel : MonoBehaviour
 {
     public GameObject charactersScreenPanel;
+    public GameObject gridSetting;
+    public GameObject gameCharacterRankPrefab;
 
     public void SetActive(bool isBool)
     {
