@@ -122,4 +122,16 @@ public class LobbyScript : MonoBehaviour
 
         }
     }
+
+    public void InputScoreButton_Click()
+    {
+        int newScore = int.Parse(characterScreenPanel.gameScoreInputField.text);
+        if (gameHighScoreMysql.createGameHighScore(UserInfo.Email, GameCharacterInfo.Nickname) != 1)
+        {
+            if(gameHighScoreMysql.updateGameScore(UserInfo.Email, newScore) != 1)
+            {
+                characterScreenPanel.inputGameScoreFaildText.SetActive(true);
+            }
+        }
+    }
 }

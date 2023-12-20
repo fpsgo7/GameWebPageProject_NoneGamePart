@@ -14,6 +14,8 @@ public class UICharacterScreenPanel : MonoBehaviour
     public Text gameCharacterNicknameText;
     public Text scoreText;
     public GameObject characterScreenPanel;
+    public InputField gameScoreInputField;
+    public GameObject inputGameScoreFaildText;
 
     public void SetActive(bool isBool)
     {

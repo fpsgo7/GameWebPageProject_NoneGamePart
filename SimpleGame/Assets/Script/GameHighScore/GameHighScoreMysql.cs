@@ -46,4 +46,56 @@ public class GameHighScoreMysql : MySqlDB
             return null;
         }
     }
+    /// <summary>
+    /// 점수 추가하기
+    /// </summary>
+    public int createGameHighScore(String email, string nickname)
+    {
+        connect();
+        // sql 문 예
+        //INSERT INTO `game_high_scores` (`email`, `game_character_nickname`, `high_score`) VALUES ('1@1', '111', '1');
+        string sqlQuery = String.Format("INSERT INTO game_high_scores " +
+           " (`email`, `nickname`, `high_score`)" +
+           "VALUES('{0}', '{1}', 0)"
+           , email, nickname);
+        MySqlCommand cmd = new MySqlCommand(sqlQuery, getConn());
+        try
+        {
+            MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
+            return 1;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+            DisConnect();
+            return -1;
+        }
+    }
+    /// <summary>
+    /// 점수 입력하기
+    /// </summary>
+    public int updateGameScore(string email, int newScore)
+    {
+        //UPDATE game_high_scores SET `high_score` = '50' WHERE (`email` = '1@1');
+        connect();
+        string sqlQuery = String.Format("UPDATE game_high_scores " +
+            "SET `high_score` = {1} " +
+            "WHERE (`email` = '{0}')" 
+           , email, newScore);
+        MySqlCommand cmd = new MySqlCommand(sqlQuery, getConn());
+
+        try
+        {
+            MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
+            DisConnect();
+            return 1;
+
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+            DisConnect();
+            return -1;
+        }
+    }
 }
