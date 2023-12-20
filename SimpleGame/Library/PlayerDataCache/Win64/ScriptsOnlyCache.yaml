@@ -54,43 +54,43 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1492}
+      Script: {instanceID: 1494}
     - Class: 114
-      Script: {instanceID: 1860}
+      Script: {instanceID: 1862}
     - Class: 114
-      Script: {instanceID: 2014}
+      Script: {instanceID: 2016}
     - Class: 114
-      Script: {instanceID: 2154}
+      Script: {instanceID: 2156}
     - Class: 114
-      Script: {instanceID: 2304}
+      Script: {instanceID: 2306}
     - Class: 114
-      Script: {instanceID: 2418}
+      Script: {instanceID: 2420}
     - Class: 114
-      Script: {instanceID: 2582}
+      Script: {instanceID: 2584}
     - Class: 114
-      Script: {instanceID: 2626}
+      Script: {instanceID: 2628}
     - Class: 114
-      Script: {instanceID: 2768}
+      Script: {instanceID: 2772}
     - Class: 114
-      Script: {instanceID: 2778}
+      Script: {instanceID: 2782}
     - Class: 114
-      Script: {instanceID: 2852}
+      Script: {instanceID: 2856}
     - Class: 114
-      Script: {instanceID: 3004}
+      Script: {instanceID: 3008}
     - Class: 114
-      Script: {instanceID: 3108}
+      Script: {instanceID: 3112}
     - Class: 114
-      Script: {instanceID: 3160}
+      Script: {instanceID: 3164}
     - Class: 114
-      Script: {instanceID: 3450}
+      Script: {instanceID: 3452}
     - Class: 114
-      Script: {instanceID: 3572}
+      Script: {instanceID: 3574}
     - Class: 114
-      Script: {instanceID: 3706}
+      Script: {instanceID: 3710}
     - Class: 114
-      Script: {instanceID: 3972}
+      Script: {instanceID: 3976}
     - Class: 114
-      Script: {instanceID: 4164}
+      Script: {instanceID: 4168}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -176,7 +176,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 30ba9729d37048116e33cec000adb279
+      Hash: ac5cfe79f3103b5dd21eb203acbf6610
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UICharactersScreenPanel
@@ -212,7 +212,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 44473d99528b3247629f1df2c4678cbb
+      Hash: 567649f7ff7385f50b973725f0d1d744
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UICharacterScreenPanel
@@ -380,7 +380,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 307030f4ff7443acc7e52b8667057d2d
+      Hash: 6e9a6012387a52f432db17dda647a714
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LobbyScript
