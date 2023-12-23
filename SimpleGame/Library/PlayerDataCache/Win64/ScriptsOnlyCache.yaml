@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Consolation.Console
     - LobbyScript
     - UICharacterRankPanel
     - UICharacterScreenPanel
@@ -9,6 +10,8 @@ ScriptsOnlyBuild:
     - UIMakeGameCharacterPanel
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.Timeline.Editor.dll:
+    - TimelineProjectSettings
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -91,6 +94,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3976}
     - Class: 114
       Script: {instanceID: 4168}
+    - Class: 114
+      Script: {instanceID: 16352}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -564,6 +569,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: e27413a49c2f11509d5f0cf5aa69f50d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Consolation
+    className: Console
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity
