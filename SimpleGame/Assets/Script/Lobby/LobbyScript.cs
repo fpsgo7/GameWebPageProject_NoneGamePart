@@ -1,10 +1,7 @@
- using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// �κ� ��ũ��Ʈ �κ��� ��ü���� ������ �����Ѵ�.
-/// </summary>
 public class LobbyScript : MonoBehaviour
 {
     public UILoginPanel loginPanel;
@@ -17,11 +14,11 @@ public class LobbyScript : MonoBehaviour
     public GameHighScoreMysql gameHighScoreMysql = new GameHighScoreMysql();
 
 
-    private List<GameCharacterRankInfo> gameCharacterRankInfos;    // ���� ��ũ �������� ��� ����Ʈ
-    private List<GameObject> gameCharacterRankObjects; // ���� ��ũ �������� ���� ���ӿ�����Ʈ ����Ʈ 
+    private List<GameCharacterRankInfo> gameCharacterRankInfos;    
+    private List<GameObject> gameCharacterRankObjects; 
 
     /// <summary>
-    /// �α��� ��ư�� Ŭ���ȴ�.
+    /// 로그인 버튼 클릭
     /// </summary>
     public void LoginButton_Click()
     {
@@ -29,15 +26,13 @@ public class LobbyScript : MonoBehaviour
         string password = loginPanel.getPasswordInputField_Text();
         if (accentication.Login(email, password)>0)
         {
-            // �α��� ����
-            // �α��� ȭ�� �ݱ�
+
             loginPanel.SetActive(false);
-            // ĳ���Ͱ� �̹� ���� ��� ���� ȭ������ �Ѿ��.
+
             if (gameCharacterMysql.GetMyGameCharacter(UserInfo.Email)>0)
             {
-                ActiveGameCharacterPanel();
+                ActiveGameCharacterAndRankPanel();
             }
-            // ���� ��쿡�� �ɸ��� ���� ȭ������ �̵��Ѵ�.
             else
             {
                 makeGameCharacterPanel.SetActive(true);
@@ -47,13 +42,12 @@ public class LobbyScript : MonoBehaviour
         }
         else
         {
-            // �α��� ����
             loginPanel.loginErrorPanel.SetActive(true);
         }
 
     }
     /// <summary>
-    /// ĳ���� ���� ��ư Ŭ��
+    /// 캐릭터 생성 버튼 클릭
     /// </summary>
     public void CreateCharacterButton_Click()
     {
@@ -61,34 +55,29 @@ public class LobbyScript : MonoBehaviour
         if (gameCharacterMysql.createGameCharacter(UserInfo.Email, nickname) == 1)
         {
             makeGameCharacterPanel.SetActive(false);
-            ActiveGameCharacterPanel();
+            ActiveGameCharacterAndRankPanel();
         }
         else
         {
-            // ���� ����
             makeGameCharacterPanel.createFaildPanel.SetActive(true);
         }
         
     }
     /// <summary>
-    /// ����ĳ���� �г� ����
+    /// 게임 캐릭터 패널 과 랭크 패널 활성화
     /// </summary>
-    private void ActiveGameCharacterPanel()
+    private void ActiveGameCharacterAndRankPanel()
     {
-        // Ȱ��ȭ�� �г��� ������ �������� �����ش�.
-        // ���� ĳ���� ���� ��������
+        
         getGameCharacterInfo();
 
-        // ���� ��ũ �����ϱ� 
         getGameRankInfo();
        
-        
-        // �г� Ȱ��ȭ
         characterScreenPanel.SetActive(true);
         charactersScreenPanel.SetActive(true);
     }
     /// <summary>
-    /// �гο� ���� ĳ���� ���� �����ֱ�
+    /// 게임 캐릭터 정보 가져오기
     /// </summary>
     private void getGameCharacterInfo()
     {
@@ -98,14 +87,12 @@ public class LobbyScript : MonoBehaviour
     }
 
     /// <summary>
-    /// �гο� ���� ĳ���� ��ũ ���� �����ֱ�
+    /// 게임 랭크 정보 가져오기
     /// </summary>
     private void getGameRankInfo()
     {
-        // ���� ��ũ �������� ��� ����Ʈ
         gameCharacterRankInfos
            = gameHighScoreMysql.getGameCharacterRankInfos();
-        // ���� ��ũ �������� ���� ���ӿ�����Ʈ ����Ʈ 
         gameCharacterRankObjects = new List<GameObject>();
         foreach (GameCharacterRankInfo gameCharacterRankInfo in gameCharacterRankInfos)
         {
@@ -126,7 +113,7 @@ public class LobbyScript : MonoBehaviour
         }
     }
     /// <summary>
-    /// ���� �Է� ��ư Ŭ��
+    /// 점수 입력 버튼 클릭
     /// </summary>
     public void InputScoreButton_Click()
     {
@@ -138,22 +125,19 @@ public class LobbyScript : MonoBehaviour
                 characterScreenPanel.inputGameScoreFaildText.SetActive(true);
             }
         }
-        // ���� ĳ���� �ְ� ���� ����
         int score = gameCharacterMysql.updateGameCharacter_highScore(newScore, UserInfo.Email);
         if(score != -1)
         {
             GameCharacterInfo.HighScore = score;
         }
-        // ���� ��ũ �ٽ� ���ε��ϱ�
         GameRankRefreshButton_Click();
     }
 
     /// <summary>
-    /// ���ӷ�ũ �ٽ� ���ε� ��ư Ŭ��
+    /// 게임 랭크 리프레시 버튼 클릭
     /// </summary>
     public void GameRankRefreshButton_Click()
     {
-        // ���� ��ũ ������ �ٽ� �����´�.
         gameCharacterRankInfos
            = gameHighScoreMysql.getGameCharacterRankInfos();
         for (int i = 0; i < gameCharacterRankInfos.Count; i++)
@@ -165,7 +149,6 @@ public class LobbyScript : MonoBehaviour
                     gameCharacterRankObjects.Add(rankGameObject);
             }
             UICharacterRankPanel rankItem = gameCharacterRankObjects[i].GetComponent<UICharacterRankPanel>();
-            // �� �ʱ�ȭ
             rankItem.Init(
                 gameCharacterRankInfos[i].Rank + "",
                 gameCharacterRankInfos[i].Email,
