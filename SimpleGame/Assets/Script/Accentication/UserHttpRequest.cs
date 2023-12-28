@@ -15,14 +15,22 @@ public class LoginInfo
         this.password = password;
     }
 }
-
+/// <summary>
+/// 유저 관련 http 작업을 관리한다.
+/// </summary>
 public class UserHttpRequest : MonoBehaviour 
 {
-    private LoginPanelScript loginScript;
+    private LoginPanelScript loginPanelScript;
+    private MakeGameCharacterPanelScript makeGameCharacterPanelScript;
+    private CharacterPanelScript characterPanelScript;
+    private CharacterRankPanelScript characterRankPanelScript;
 
     private void Start()
     {
-        loginScript = GameObject.Find("LobbyScript").GetComponent<LoginPanelScript>();
+        loginPanelScript = GameObject.Find("LobbyScript").GetComponent<LoginPanelScript>();
+        makeGameCharacterPanelScript = GameObject.Find("LobbyScript").GetComponent<MakeGameCharacterPanelScript>();
+        characterPanelScript = GameObject.Find("LobbyScript").GetComponent<CharacterPanelScript>();
+        characterRankPanelScript = GameObject.Find("LobbyScript").GetComponent<CharacterRankPanelScript>();
     }
 
     public void login(string email, string password)
@@ -41,39 +49,33 @@ public class UserHttpRequest : MonoBehaviour
                 {
                     UserInfo.Email = jObject["userEmail"].ToString();
                     UserInfo.Nickname = jObject["userNickname"].ToString();
-                    Debug.Log(
-                    UserInfo.Email + "\n" +
-                    UserInfo.Nickname);
+
                     if (jObject["isGameCharacter"].ToString().Equals("true"))
                     {
                         GameCharacterInfo.Email = jObject["userEmail"].ToString();
                         GameCharacterInfo.Nickname = jObject["gameCharacterNickname"].ToString();
                         GameCharacterInfo.HighScore = (long)jObject["gameCharacterHighScore"];
 
-
-                        Debug.Log(
-                        GameCharacterInfo.Email + "\n" +
-                        GameCharacterInfo.Nickname + "\n" +
-                         GameCharacterInfo.HighScore);
-                        loginScript.LoginActive(true, true);
-                        // 게임 캐릭터 창으로 이동함
+                        loginPanelScript.LoginActive(true, true);
+                        characterPanelScript.PanelActive(true);
+                        characterRankPanelScript.PanelActive(true);
                     }
                     else
                     {
-                        loginScript.LoginActive(true, true);
-                        // 게임 캐릭터 생성창으로 이동함
+                        loginPanelScript.LoginActive(true, true);
+                        makeGameCharacterPanelScript.PanelActive(true);
                     }
                 }
                 else if (jObject["isUser"].ToString().Equals("false"))
                 {
                     Debug.Log("비밀번호 또는 아이디가 잘못 되었습니다.");
-                    loginScript.LoginActive(true, false);
+                    loginPanelScript.LoginActive(true, false);
                 }
             }
             catch(Exception e)
             {
                 Debug.Log("게임 접속이 원활하지 않습니다.");
-                loginScript.LoginActive(false, false);
+                loginPanelScript.LoginActive(false, false);
             }
         }));
     }

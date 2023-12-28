@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 로그인 패널을 다룬다.
+/// </summary>
 public class LoginPanelScript : MonoBehaviour
 {
     private UILoginPanel loginPanel;

@@ -7,7 +7,7 @@ public class LobbyScript : MonoBehaviour
     public UILoginPanel loginPanel;
     public UIMakeGameCharacterPanel makeGameCharacterPanel;
     public UICharacterScreenPanel characterScreenPanel;
-    public UICharactersScreenPanel charactersScreenPanel;
+    public UICharacterRankScreenPanel charactersScreenPanel;
 
     public Accentication accentication = new Accentication();
     private UserHttpRequest userHttpRequest;
@@ -31,7 +31,6 @@ public class LobbyScript : MonoBehaviour
         string email = loginPanel.getEmailInputField_Text();
         string password = loginPanel.getPasswordInputField_Text();
         userHttpRequest.login(email, password);
-        
         //if (true)
         //{
             
