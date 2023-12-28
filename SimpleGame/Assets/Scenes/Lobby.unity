@@ -1411,6 +1411,9 @@ GameObject:
   - component: {fileID: 568606447}
   - component: {fileID: 568606449}
   - component: {fileID: 568606448}
+  - component: {fileID: 568606450}
+  - component: {fileID: 568606452}
+  - component: {fileID: 568606451}
   m_Layer: 0
   m_Name: LobbyScript
   m_TagString: Untagged
@@ -1460,6 +1463,42 @@ MonoBehaviour:
   makeGameCharacterPanel: {fileID: 286575965}
   characterScreenPanel: {fileID: 286575963}
   charactersScreenPanel: {fileID: 286575964}
+--- !u!114 &568606450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568606446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573b09308696e1e42a12b6e90d777d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &568606451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568606446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9d57d79970f3348a2a87a6f6c1095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &568606452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568606446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb90386de6f0fbf4092a77b7b4c91af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &592402773
 GameObject:
   m_ObjectHideFlags: 0
