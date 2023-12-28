@@ -12,6 +12,7 @@ public class LobbyScript : MonoBehaviour
     public Accentication accentication = new Accentication();
     private UserHttpRequest userHttpRequest;
     public GameCharacterMysql gameCharacterMysql = new GameCharacterMysql();
+    private GameCharacterHttpRequest gameCharacterHttpRequest;
     public GameHighScoreMysql gameHighScoreMysql = new GameHighScoreMysql();
 
 
@@ -21,6 +22,7 @@ public class LobbyScript : MonoBehaviour
     private void Start()
     {
         userHttpRequest = GameObject.Find("WebRequestScript").GetComponent<UserHttpRequest>();
+        gameCharacterHttpRequest = GameObject.Find("WebRequestScript").GetComponent<GameCharacterHttpRequest>();
     }
 
     /// <summary>
@@ -31,28 +33,6 @@ public class LobbyScript : MonoBehaviour
         string email = loginPanel.getEmailInputField_Text();
         string password = loginPanel.getPasswordInputField_Text();
         userHttpRequest.login(email, password);
-        //if (true)
-        //{
-            
-
-        //    loginPanel.SetActive(false);
-
-        //    if (gameCharacterMysql.GetMyGameCharacter(UserInfo.Email)>0)
-        //    {
-        //        ActiveGameCharacterAndRankPanel();
-        //    }
-        //    else
-        //    {
-        //        makeGameCharacterPanel.SetActive(true);
-        //    }
-            
-
-        //}
-        //else
-        //{
-        //    loginPanel.loginErrorPanel.SetActive(true);
-        //}
-
     }
     /// <summary>
     /// 캐릭터 생성 버튼 클릭
@@ -60,15 +40,17 @@ public class LobbyScript : MonoBehaviour
     public void CreateCharacterButton_Click()
     {
         string nickname = makeGameCharacterPanel.getNicknameInputField_Text();
-        if (gameCharacterMysql.createGameCharacter(UserInfo.Email, nickname) == 1)
-        {
-            makeGameCharacterPanel.SetActive(false);
-            ActiveGameCharacterAndRankPanel();
-        }
-        else
-        {
-            makeGameCharacterPanel.createFaildPanel.SetActive(true);
-        }
+        gameCharacterHttpRequest.CreateGameCharacter(UserInfo.Email, nickname);
+
+        //if (gameCharacterMysql.createGameCharacter(UserInfo.Email, nickname) == 1)
+        //{
+        //    makeGameCharacterPanel.SetActive(false);
+        //    ActiveGameCharacterAndRankPanel();
+        //}
+        //else
+        //{
+        //    makeGameCharacterPanel.createFaildPanel.SetActive(true);
+        //}
         
     }
     /// <summary>

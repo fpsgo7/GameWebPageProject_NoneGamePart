@@ -16,7 +16,12 @@ public class MakeGameCharacterPanelScript : MonoBehaviour
 
     public void PanelActive(bool isBool)
     {
-        uIMakeGameCharacterPanel.SetActive(true);
+        uIMakeGameCharacterPanel.SetActive(isBool);
+    }
+
+    public void CreateFail(bool isBool)
+    {
+        uIMakeGameCharacterPanel.createFaildPanel.SetActive(isBool);
     }
 
 }
