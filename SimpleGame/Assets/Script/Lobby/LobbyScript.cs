@@ -10,12 +10,18 @@ public class LobbyScript : MonoBehaviour
     public UICharactersScreenPanel charactersScreenPanel;
 
     public Accentication accentication = new Accentication();
+    private UserHttpRequest userHttpRequest;
     public GameCharacterMysql gameCharacterMysql = new GameCharacterMysql();
     public GameHighScoreMysql gameHighScoreMysql = new GameHighScoreMysql();
 
 
     private List<GameCharacterRankInfo> gameCharacterRankInfos;    
-    private List<GameObject> gameCharacterRankObjects; 
+    private List<GameObject> gameCharacterRankObjects;
+
+    private void Start()
+    {
+        userHttpRequest = GameObject.Find("WebRequestScript").GetComponent<UserHttpRequest>();
+    }
 
     /// <summary>
     /// 로그인 버튼 클릭
@@ -24,26 +30,29 @@ public class LobbyScript : MonoBehaviour
     {
         string email = loginPanel.getEmailInputField_Text();
         string password = loginPanel.getPasswordInputField_Text();
-        if (accentication.Login(email, password)>0)
-        {
-
-            loginPanel.SetActive(false);
-
-            if (gameCharacterMysql.GetMyGameCharacter(UserInfo.Email)>0)
-            {
-                ActiveGameCharacterAndRankPanel();
-            }
-            else
-            {
-                makeGameCharacterPanel.SetActive(true);
-            }
+        userHttpRequest.login(email, password);
+        
+        //if (true)
+        //{
             
 
-        }
-        else
-        {
-            loginPanel.loginErrorPanel.SetActive(true);
-        }
+        //    loginPanel.SetActive(false);
+
+        //    if (gameCharacterMysql.GetMyGameCharacter(UserInfo.Email)>0)
+        //    {
+        //        ActiveGameCharacterAndRankPanel();
+        //    }
+        //    else
+        //    {
+        //        makeGameCharacterPanel.SetActive(true);
+        //    }
+            
+
+        //}
+        //else
+        //{
+        //    loginPanel.loginErrorPanel.SetActive(true);
+        //}
 
     }
     /// <summary>

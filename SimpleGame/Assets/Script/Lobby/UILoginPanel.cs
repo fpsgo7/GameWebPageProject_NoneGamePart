@@ -11,7 +11,8 @@ public class UILoginPanel : MonoBehaviour
     public Button loginButton;
     public InputField emailInpuField;
     public InputField passwordInputField;
-    public GameObject loginErrorPanel;
+    public GameObject loginServerErrorPanel;
+    public GameObject loginInfoErrorPanel;
     public GameObject loginPanel;
 
     public void SetActive(bool isBool)
@@ -27,4 +28,6 @@ public class UILoginPanel : MonoBehaviour
     {
         return passwordInputField.text;
     }
+
+    
 }
