@@ -123,6 +123,86 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &92573620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 92573621}
+  - component: {fileID: 92573623}
+  - component: {fileID: 92573622}
+  m_Layer: 5
+  m_Name: LoginFailed-Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &92573621
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92573620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1720151512}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 12}
+  m_SizeDelta: {x: 500, y: 400}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &92573622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92573620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 70
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\uC774\uBA54\uC77C \uACFC \uBE44\uBC00\uBC88\uD638\uB97C \uB2E4\uC2DC
+    \uD655\uC778\uD574 \uC8FC\uC2ED\uC2DC\uC694 "
+--- !u!222 &92573623
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92573620}
+  m_CullTransparentMesh: 1
 --- !u!1 &178359649
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +440,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263166638}
   m_CullTransparentMesh: 1
+--- !u!1 &286575960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286575961}
+  - component: {fileID: 286575965}
+  - component: {fileID: 286575964}
+  - component: {fileID: 286575963}
+  - component: {fileID: 286575962}
+  m_Layer: 0
+  m_Name: PanelObjectScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &286575961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286575960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 504.43658, y: 324.47318, z: 0.01773346}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &286575962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286575960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8bc51f89059da44c94eb1ed96acb12d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loginButton: {fileID: 1351077594}
+  emailInpuField: {fileID: 537256477}
+  passwordInputField: {fileID: 979544680}
+  loginServerErrorPanel: {fileID: 1787229211}
+  loginInfoErrorPanel: {fileID: 1720151511}
+  loginPanel: {fileID: 1535098702}
+--- !u!114 &286575963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286575960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ffc685d44c20c744be57b1ddb66c852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userNicknameText: {fileID: 263166640}
+  gameCharacterNicknameText: {fileID: 1651945799}
+  scoreText: {fileID: 1519457243}
+  characterScreenPanel: {fileID: 1398742263}
+  gameScoreInputField: {fileID: 1591656480}
+  inputGameScoreFaildText: {fileID: 1389008318}
+--- !u!114 &286575964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286575960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f02a1760fa0bf4c83c120e42a5c4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactersScreenPanel: {fileID: 1521123643}
+  gridSetting: {fileID: 1899200385}
+  gameCharacterRankPrefab: {fileID: 439818601717705209, guid: a6f926d294c4850498bf9023a268ca50, type: 3}
+--- !u!114 &286575965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286575960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36719aa2d029a2c4996f099d8d025d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createGameCharacterButton: {fileID: 1597538159}
+  nicknameInputField: {fileID: 841966487}
+  makeGameCharacterPanel: {fileID: 199905990}
+  createFaildPanel: {fileID: 555905042}
 --- !u!1 &353215957
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,49 +789,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
---- !u!1 &398350648
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 398350649}
-  - component: {fileID: 398350650}
-  m_Layer: 0
-  m_Name: HTTPScript
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &398350649
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398350648}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 504.43658, y: 324.47318, z: 0.01773346}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &398350650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398350648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d56c4680b4086eb4e89db7b7dd318942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &404512202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,11 +1409,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 568606447}
-  - component: {fileID: 568606448}
   - component: {fileID: 568606449}
-  - component: {fileID: 568606450}
-  - component: {fileID: 568606452}
-  - component: {fileID: 568606451}
+  - component: {fileID: 568606448}
   m_Layer: 0
   m_Name: LobbyScript
   m_TagString: Untagged
@@ -1306,14 +1441,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 568606446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bc51f89059da44c94eb1ed96acb12d, type: 3}
+  m_Script: {fileID: 11500000, guid: f355124b094fa91418cafe6844a8dcd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loginButton: {fileID: 1351077594}
-  emailInpuField: {fileID: 537256477}
-  passwordInputField: {fileID: 979544680}
-  loginErrorPanel: {fileID: 1787229211}
-  loginPanel: {fileID: 1535098702}
 --- !u!114 &568606449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1326,59 +1456,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc241c77aaa405b4eb14a0fc99c9d20f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loginPanel: {fileID: 568606448}
-  makeGameCharacterPanel: {fileID: 568606450}
-  characterScreenPanel: {fileID: 568606451}
-  charactersScreenPanel: {fileID: 568606452}
---- !u!114 &568606450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568606446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36719aa2d029a2c4996f099d8d025d21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  createGameCharacterButton: {fileID: 1597538159}
-  nicknameInputField: {fileID: 841966487}
-  makeGameCharacterPanel: {fileID: 199905990}
-  createFaildPanel: {fileID: 555905042}
---- !u!114 &568606451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568606446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ffc685d44c20c744be57b1ddb66c852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  userNicknameText: {fileID: 263166640}
-  gameCharacterNicknameText: {fileID: 1651945799}
-  scoreText: {fileID: 1519457243}
-  characterScreenPanel: {fileID: 1398742263}
-  gameScoreInputField: {fileID: 1591656480}
-  inputGameScoreFaildText: {fileID: 1389008318}
---- !u!114 &568606452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568606446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f02a1760fa0bf4c83c120e42a5c4d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charactersScreenPanel: {fileID: 1521123643}
-  gridSetting: {fileID: 1899200385}
-  gameCharacterRankPrefab: {fileID: 439818601717705209, guid: a6f926d294c4850498bf9023a268ca50, type: 3}
+  loginPanel: {fileID: 286575962}
+  makeGameCharacterPanel: {fileID: 286575965}
+  characterScreenPanel: {fileID: 286575963}
+  charactersScreenPanel: {fileID: 286575964}
 --- !u!1 &592402773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,6 +2593,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157070059}
   m_CullTransparentMesh: 1
+--- !u!1 &1211886925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1211886926}
+  - component: {fileID: 1211886927}
+  m_Layer: 0
+  m_Name: WebRequestScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1211886926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211886925}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 504.43658, y: 324.47318, z: 0.01773346}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1211886927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211886925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db55c9fabfcff164dbbd56253ec56577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1273864950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,7 +2918,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB85C\uADF8\uC778\uC744 \uC2E4\uD328\uD558\uC600\uC2B5\uB2C8\uB2E4."
+  m_Text: "\uB85C\uADF8\uC778 \uC2DC\uB3C4\uB97C \uC2E4\uD328\uD558\uC600\uC2B5\uB2C8\uB2E4."
 --- !u!222 &1356453548
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3271,6 +3395,7 @@ RectTransform:
   - {fileID: 1697738368}
   - {fileID: 1351077593}
   - {fileID: 1787229212}
+  - {fileID: 1720151512}
   m_Father: {fileID: 359621888}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3932,6 +4057,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717745979}
   m_CullTransparentMesh: 1
+--- !u!1 &1720151511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1720151512}
+  - component: {fileID: 1720151514}
+  - component: {fileID: 1720151513}
+  m_Layer: 5
+  m_Name: LoginFailedWrongInfo-Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1720151512
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720151511}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 92573621}
+  m_Father: {fileID: 1535098703}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 988.5027, y: 35}
+  m_SizeDelta: {x: -324.27612, y: -565.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1720151513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720151511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.7529412}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1720151514
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720151511}
+  m_CullTransparentMesh: 1
 --- !u!1 &1783080546
 GameObject:
   m_ObjectHideFlags: 0
@@ -4023,7 +4224,7 @@ GameObject:
   - component: {fileID: 1787229214}
   - component: {fileID: 1787229213}
   m_Layer: 5
-  m_Name: LoginFailed-Panel
+  m_Name: LoginFailedWrongServer-Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
