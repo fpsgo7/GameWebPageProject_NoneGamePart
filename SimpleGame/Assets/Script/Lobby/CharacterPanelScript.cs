@@ -13,6 +13,9 @@ public class CharacterPanelScript : MonoBehaviour
 
     public void PanelActive(bool isBool)
     {
+        uICharacterScreenPanel.userNicknameText.text = UserInfo.Nickname;
+        uICharacterScreenPanel.gameCharacterNicknameText.text = GameCharacterInfo.Nickname;
+        uICharacterScreenPanel.scoreText.text = GameCharacterInfo.HighScore.ToString();
         uICharacterScreenPanel.SetActive(isBool);
     }
 }

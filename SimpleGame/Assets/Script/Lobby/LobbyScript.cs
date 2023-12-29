@@ -41,17 +41,6 @@ public class LobbyScript : MonoBehaviour
     {
         string nickname = makeGameCharacterPanel.getNicknameInputField_Text();
         gameCharacterHttpRequest.CreateGameCharacter(UserInfo.Email, nickname);
-
-        //if (gameCharacterMysql.createGameCharacter(UserInfo.Email, nickname) == 1)
-        //{
-        //    makeGameCharacterPanel.SetActive(false);
-        //    ActiveGameCharacterAndRankPanel();
-        //}
-        //else
-        //{
-        //    makeGameCharacterPanel.createFaildPanel.SetActive(true);
-        //}
-        
     }
     /// <summary>
     /// 게임 캐릭터 패널 과 랭크 패널 활성화
