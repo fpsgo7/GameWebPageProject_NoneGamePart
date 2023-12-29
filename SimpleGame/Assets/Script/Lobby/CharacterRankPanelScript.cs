@@ -17,14 +17,14 @@ public class CharacterRankPanelScript : MonoBehaviour
 
     public void PanelActive(bool isBool, List<GameCharacterRankInfo> gameCharacterRankInfos)
     {
-        foreach (GameCharacterRankInfo gameCharacterRankInfo in gameCharacterRankInfos)
+        for (int i = 0; i < gameCharacterRankInfos.Count; i++)
         {
-            GameObject rankGameObject
+            if (i >= gameCharacterRankObjects.Count)
+            {
+                GameObject rankGameObject
                 = Instantiate<GameObject>(uICharacterRankScreenPanel.gameCharacterRankPrefab, uICharacterRankScreenPanel.gridSetting.transform);
-            gameCharacterRankObjects.Add(rankGameObject);
-        }
-        for (int i = 0; i < gameCharacterRankObjects.Count; i++)
-        {
+                gameCharacterRankObjects.Add(rankGameObject);
+            }
             UICharacterRankPanel rankItem = gameCharacterRankObjects[i].GetComponent<UICharacterRankPanel>();
             rankItem.Init(
                 gameCharacterRankInfos[i].Rank + "",

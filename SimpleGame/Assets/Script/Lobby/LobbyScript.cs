@@ -14,6 +14,7 @@ public class LobbyScript : MonoBehaviour
     public GameCharacterMysql gameCharacterMysql = new GameCharacterMysql();
     private GameCharacterHttpRequest gameCharacterHttpRequest;
     public GameHighScoreMysql gameHighScoreMysql = new GameHighScoreMysql();
+    private GameHighScoreHttpRequest gameHighScoreHttpRequest;
 
 
     private List<GameCharacterRankInfo> gameCharacterRankInfos;    
@@ -23,6 +24,7 @@ public class LobbyScript : MonoBehaviour
     {
         userHttpRequest = GameObject.Find("WebRequestScript").GetComponent<UserHttpRequest>();
         gameCharacterHttpRequest = GameObject.Find("WebRequestScript").GetComponent<GameCharacterHttpRequest>();
+        gameHighScoreHttpRequest = GameObject.Find("WebRequestScript").GetComponent<GameHighScoreHttpRequest>();
     }
 
     /// <summary>
@@ -117,25 +119,7 @@ public class LobbyScript : MonoBehaviour
     /// </summary>
     public void GameRankRefreshButton_Click()
     {
-        gameCharacterRankInfos
-           = gameHighScoreMysql.getGameCharacterRankInfos();
-        for (int i = 0; i < gameCharacterRankInfos.Count; i++)
-        {
-            if(i >= gameCharacterRankObjects.Count)
-            {
-                GameObject rankGameObject
-                = Instantiate<GameObject>(charactersScreenPanel.gameCharacterRankPrefab, charactersScreenPanel.gridSetting.transform);
-                    gameCharacterRankObjects.Add(rankGameObject);
-            }
-            UICharacterRankPanel rankItem = gameCharacterRankObjects[i].GetComponent<UICharacterRankPanel>();
-            rankItem.Init(
-                gameCharacterRankInfos[i].Rank + "",
-                gameCharacterRankInfos[i].Email,
-                gameCharacterRankInfos[i].Nickname,
-                gameCharacterRankInfos[i].HighScore + ""
-                );
-        }
-
+        gameHighScoreHttpRequest.GetGameRank();
         characterScreenPanel.scoreText.text = string.Format("{0}", GameCharacterInfo.HighScore);
     }
 }

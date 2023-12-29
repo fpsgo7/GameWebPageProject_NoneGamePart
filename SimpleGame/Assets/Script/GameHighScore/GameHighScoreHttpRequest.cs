@@ -21,6 +21,7 @@ public class GameHighScoreHttpRequest : MonoBehaviour
         {
             try
             {
+                gameCharacterRankInfos.Clear();
                 JArray jArray = JArray.Parse(answer);
                 for (int i = 0; i < jArray.Count; i++)
                 {
