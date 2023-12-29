@@ -51,7 +51,6 @@ public class GameCharacterHttpRequest : MonoBehaviour
                     GameCharacterInfo.HighScore = (long)jObject["gameCharacterHighScore"];
                     makeGameCharacterPanelScript.PanelActive(false);
                     characterPanelScript.PanelActive(true);
-                    characterRankPanelScript.PanelActive(true);
                 }
                 else
                 {

@@ -23,14 +23,14 @@ public class UserHttpRequest : MonoBehaviour
     private LoginPanelScript loginPanelScript;
     private MakeGameCharacterPanelScript makeGameCharacterPanelScript;
     private CharacterPanelScript characterPanelScript;
-    private CharacterRankPanelScript characterRankPanelScript;
+    private GameHighScoreHttpRequest gameHighScoreHttpRequest;
 
     private void Start()
     {
         loginPanelScript = GameObject.Find("LobbyScript").GetComponent<LoginPanelScript>();
         makeGameCharacterPanelScript = GameObject.Find("LobbyScript").GetComponent<MakeGameCharacterPanelScript>();
         characterPanelScript = GameObject.Find("LobbyScript").GetComponent<CharacterPanelScript>();
-        characterRankPanelScript = GameObject.Find("LobbyScript").GetComponent<CharacterRankPanelScript>();
+        gameHighScoreHttpRequest = GameObject.Find("WebRequestScript").GetComponent<GameHighScoreHttpRequest>();
     }
 
     public void login(string email, string password)
@@ -49,6 +49,7 @@ public class UserHttpRequest : MonoBehaviour
                 {
                     UserInfo.Email = jObject["userEmail"].ToString();
                     UserInfo.Nickname = jObject["userNickname"].ToString();
+                    gameHighScoreHttpRequest.GetGameRank();
 
                     if (jObject["isGameCharacter"].ToString().Equals("true"))
                     {
@@ -58,7 +59,6 @@ public class UserHttpRequest : MonoBehaviour
 
                         loginPanelScript.LoginActive(true, true);
                         characterPanelScript.PanelActive(true);
-                        characterRankPanelScript.PanelActive(true);
                     }
                     else
                     {
@@ -72,9 +72,9 @@ public class UserHttpRequest : MonoBehaviour
                     loginPanelScript.LoginActive(true, false);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Debug.Log("게임 접속이 원활하지 않습니다.");
+                Debug.Log(e.Message);
                 loginPanelScript.LoginActive(false, false);
             }
         }));
