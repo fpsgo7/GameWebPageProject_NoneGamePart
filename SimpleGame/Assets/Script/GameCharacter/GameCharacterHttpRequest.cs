@@ -38,7 +38,7 @@ public class GameCharacterHttpRequest : MonoBehaviour
 
         // 회원 정보와 캐릭터 정보를 가져와 
         // 정적 클래스에 각 저장한다.
-        StartCoroutine(WebRequestScript.WebRequestPostIE("/game/gameCharacter", json, (answer) =>
+        StartCoroutine(WebRequestScript.WebRequestPost("/game/gameCharacter", json, (answer) =>
         {
             try
             {
@@ -61,7 +61,7 @@ public class GameCharacterHttpRequest : MonoBehaviour
             }
             catch (Exception e)
             {
-                Debug.Log("게임 생성이 원활하지 않습니다.");
+                Debug.Log("게임 생성이 원활하지 않습니다.\n"+e.Message);
                 makeGameCharacterPanelScript.CreateFail(true);
             }
         }));

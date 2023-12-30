@@ -7,18 +7,10 @@ public class LobbyScript : MonoBehaviour
     public UILoginPanel loginPanel;
     public UIMakeGameCharacterPanel makeGameCharacterPanel;
     public UICharacterScreenPanel characterScreenPanel;
-    public UICharacterRankScreenPanel charactersScreenPanel;
 
-    public Accentication accentication = new Accentication();
     private UserHttpRequest userHttpRequest;
-    public GameCharacterMysql gameCharacterMysql = new GameCharacterMysql();
     private GameCharacterHttpRequest gameCharacterHttpRequest;
-    public GameHighScoreMysql gameHighScoreMysql = new GameHighScoreMysql();
     private GameHighScoreHttpRequest gameHighScoreHttpRequest;
-
-
-    private List<GameCharacterRankInfo> gameCharacterRankInfos;    
-    private List<GameObject> gameCharacterRankObjects;
 
     private void Start()
     {
@@ -44,55 +36,7 @@ public class LobbyScript : MonoBehaviour
         string nickname = makeGameCharacterPanel.getNicknameInputField_Text();
         gameCharacterHttpRequest.CreateGameCharacter(UserInfo.Email, nickname);
     }
-    /// <summary>
-    /// 게임 캐릭터 패널 과 랭크 패널 활성화
-    /// </summary>
-    private void ActiveGameCharacterAndRankPanel()
-    {
-        
-        getGameCharacterInfo();
 
-        getGameRankInfo();
-       
-        characterScreenPanel.SetActive(true);
-        charactersScreenPanel.SetActive(true);
-    }
-    /// <summary>
-    /// 게임 캐릭터 정보 가져오기
-    /// </summary>
-    private void getGameCharacterInfo()
-    {
-        characterScreenPanel.userNicknameText.text = UserInfo.Nickname;
-        characterScreenPanel.gameCharacterNicknameText.text = GameCharacterInfo.Nickname;
-        characterScreenPanel.scoreText.text = string.Format("{0}", GameCharacterInfo.HighScore);
-    }
-
-    /// <summary>
-    /// 게임 랭크 정보 가져오기
-    /// </summary>
-    private void getGameRankInfo()
-    {
-        gameCharacterRankInfos
-           = gameHighScoreMysql.getGameCharacterRankInfos();
-        gameCharacterRankObjects = new List<GameObject>();
-        foreach (GameCharacterRankInfo gameCharacterRankInfo in gameCharacterRankInfos)
-        {
-            GameObject rankGameObject
-                = Instantiate<GameObject>(charactersScreenPanel.gameCharacterRankPrefab, charactersScreenPanel.gridSetting.transform);
-            gameCharacterRankObjects.Add(rankGameObject);
-        }
-        for (int i = 0; i < gameCharacterRankObjects.Count; i++)
-        {
-            UICharacterRankPanel rankItem = gameCharacterRankObjects[i].GetComponent<UICharacterRankPanel>();
-            rankItem.Init(
-                gameCharacterRankInfos[i].Rank + "",
-                gameCharacterRankInfos[i].Email,
-                gameCharacterRankInfos[i].Nickname,
-                gameCharacterRankInfos[i].HighScore + ""
-                );
-
-        }
-    }
     /// <summary>
     /// 점수 입력 버튼 클릭
     /// </summary>

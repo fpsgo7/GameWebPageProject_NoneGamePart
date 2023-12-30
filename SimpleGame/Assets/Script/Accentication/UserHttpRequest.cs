@@ -40,7 +40,7 @@ public class UserHttpRequest : MonoBehaviour
 
         // 회원 정보와 캐릭터 정보를 가져와 
         // 정적 클래스에 각 저장한다.
-        StartCoroutine(WebRequestScript.WebRequestPostIE("/game/user", json, (answer) =>
+        StartCoroutine(WebRequestScript.WebRequestPost("/game/user", json, (answer) =>
         {
             try
             {

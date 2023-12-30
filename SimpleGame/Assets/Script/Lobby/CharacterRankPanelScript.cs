@@ -5,14 +5,11 @@ using UnityEngine;
 public class CharacterRankPanelScript : MonoBehaviour
 {
     private UICharacterRankScreenPanel uICharacterRankScreenPanel;
-    private UICharacterScreenPanel uIcharacterScreenPanel;
-    private List<GameCharacterRankInfo> gameCharacterRankInfos;
     private List<GameObject> gameCharacterRankObjects = new List<GameObject>();
 
     void Start()
     {
         uICharacterRankScreenPanel = GameObject.Find("PanelObjectScript").GetComponent<UICharacterRankScreenPanel>();
-        uIcharacterScreenPanel = GameObject.Find("PanelObjectScript").GetComponent<UICharacterScreenPanel>();
     }
 
     public void PanelActive(bool isBool, List<GameCharacterRankInfo> gameCharacterRankInfos)

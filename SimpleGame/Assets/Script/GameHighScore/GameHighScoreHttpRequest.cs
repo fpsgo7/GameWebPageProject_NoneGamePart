@@ -31,7 +31,7 @@ public class GameHighScoreHttpRequest : MonoBehaviour
 
         // 회원 정보와 캐릭터 정보를 가져와 
         // 정적 클래스에 각 저장한다.
-        StartCoroutine(WebRequestScript.WebRequestGetIE("/game/gameHighScore", (answer) =>
+        StartCoroutine(WebRequestScript.WebRequestGet("/game/gameHighScore", (answer) =>
         {
             try
             {
@@ -62,7 +62,7 @@ public class GameHighScoreHttpRequest : MonoBehaviour
         UpdateGameHighScore updateGameHighScore = new UpdateGameHighScore(UserInfo.Email, newScore);
         string json = JsonUtility.ToJson(updateGameHighScore);
 
-        StartCoroutine(WebRequestScript.WebRequestPostIE("/game/gameHighScore",json, (answer) =>
+        StartCoroutine(WebRequestScript.WebRequestPost("/game/gameHighScore",json, (answer) =>
         {
             try
             {
@@ -82,7 +82,7 @@ public class GameHighScoreHttpRequest : MonoBehaviour
             }
             catch (Exception e)
             {
-                Debug.Log("웹과 통신에 실패하였습니다.");
+                Debug.Log("웹과 통신에 실패하였습니다. \n" +e.Message);
 
             }
         }));
