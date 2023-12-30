@@ -20,18 +20,16 @@ public class GameCharacterHttpRequest : MonoBehaviour
 {
     private MakeGameCharacterPanelScript makeGameCharacterPanelScript;
     private CharacterPanelScript characterPanelScript;
-    private CharacterRankPanelScript characterRankPanelScript;
 
     void Start()
     {
         makeGameCharacterPanelScript = GameObject.Find("LobbyScript").GetComponent<MakeGameCharacterPanelScript>();
         characterPanelScript = GameObject.Find("LobbyScript").GetComponent<CharacterPanelScript>();
-        characterRankPanelScript = GameObject.Find("LobbyScript").GetComponent<CharacterRankPanelScript>();
     }
 
     public void CreateGameCharacter(string email,string nickname)
     {
-        // INSERT INTO `mywebgameproject`.`gamecharacters` (`email`, `nickname`, `high_score`) ;
+        // INSERT INTO `mywebgameproject`.`gamecharacters` (`email`, `nickname`) ;
         CreateGameCharacterinfo createGameCharacterInfo 
             = new CreateGameCharacterinfo(email, nickname);
         string json = JsonUtility.ToJson(createGameCharacterInfo);

@@ -51,6 +51,6 @@ public class LobbyScript : MonoBehaviour
     /// </summary>
     public void GameRankRefreshButton_Click()
     {
-        gameHighScoreHttpRequest.GetGameRank();
+        gameHighScoreHttpRequest.GetGameRanks();
     }
 }

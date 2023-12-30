@@ -18,20 +18,20 @@ public class UpdateGameHighScore
 public class GameHighScoreHttpRequest : MonoBehaviour
 {
     private List<GameCharacterRankInfo> gameCharacterRankInfos = new List<GameCharacterRankInfo>();
-    private CharacterRankPanelScript characterRankPanelScript;
+    private CharacterRankScreenPanelScript characterRankScreenPanelScript;
     private CharacterPanelScript characterPanelScript;
     void Start()
     {
-        characterRankPanelScript = GameObject.Find("LobbyScript").GetComponent<CharacterRankPanelScript>();
+        characterRankScreenPanelScript = GameObject.Find("LobbyScript").GetComponent<CharacterRankScreenPanelScript>();
         characterPanelScript = GameObject.Find("LobbyScript").GetComponent<CharacterPanelScript>();
     }
 
-    public void GetGameRank()
+    public void GetGameRanks()
     {
 
         // 회원 정보와 캐릭터 정보를 가져와 
         // 정적 클래스에 각 저장한다.
-        StartCoroutine(WebRequestScript.WebRequestGet("/game/gameHighScore", (answer) =>
+        StartCoroutine(WebRequestScript.WebRequestGet("/game/gameHighScores", (answer) =>
         {
             try
             {
@@ -47,7 +47,7 @@ public class GameHighScoreHttpRequest : MonoBehaviour
                     gameCharacterRankInfo.LastedTime = (DateTime)jArray[i]["lastedTime"];
                     gameCharacterRankInfos.Add(gameCharacterRankInfo);
                 }
-                characterRankPanelScript.PanelActive(true, gameCharacterRankInfos);
+                characterRankScreenPanelScript.PanelActive(true, gameCharacterRankInfos);
             }
             catch (Exception e)
             {
@@ -73,7 +73,7 @@ public class GameHighScoreHttpRequest : MonoBehaviour
                     Debug.Log("게임 캐릭터 정보 업데이트가 성공하였습니다..");
                     GameCharacterInfo.HighScore = (long)jObject["highScore"];
                     characterPanelScript.PanelActive(true);
-                    GetGameRank();
+                    GetGameRanks();
                 }
                 else
                 {

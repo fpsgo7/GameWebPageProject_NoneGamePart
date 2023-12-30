@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterRankPanelScript : MonoBehaviour
+public class CharacterRankScreenPanelScript : MonoBehaviour
 {
     private UICharacterRankScreenPanel uICharacterRankScreenPanel;
     private List<GameObject> gameCharacterRankObjects = new List<GameObject>();
