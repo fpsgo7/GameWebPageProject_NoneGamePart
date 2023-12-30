@@ -108,6 +108,5 @@ public class LobbyScript : MonoBehaviour
     public void GameRankRefreshButton_Click()
     {
         gameHighScoreHttpRequest.GetGameRank();
-        characterScreenPanel.scoreText.text = string.Format("{0}", GameCharacterInfo.HighScore);
     }
 }

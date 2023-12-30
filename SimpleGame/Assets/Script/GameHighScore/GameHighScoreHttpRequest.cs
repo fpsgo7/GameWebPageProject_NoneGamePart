@@ -19,9 +19,11 @@ public class GameHighScoreHttpRequest : MonoBehaviour
 {
     private List<GameCharacterRankInfo> gameCharacterRankInfos = new List<GameCharacterRankInfo>();
     private CharacterRankPanelScript characterRankPanelScript;
+    private CharacterPanelScript characterPanelScript;
     void Start()
     {
         characterRankPanelScript = GameObject.Find("LobbyScript").GetComponent<CharacterRankPanelScript>();
+        characterPanelScript = GameObject.Find("LobbyScript").GetComponent<CharacterPanelScript>();
     }
 
     public void GetGameRank()
@@ -66,9 +68,11 @@ public class GameHighScoreHttpRequest : MonoBehaviour
             {
                 JObject jObject = JObject.Parse(answer);
 
-                if (jObject["isSetGameHighScore"].ToString().Equals("true"))
+                if (jObject["highScore"] != null)
                 {
                     Debug.Log("게임 캐릭터 정보 업데이트가 성공하였습니다..");
+                    GameCharacterInfo.HighScore = (long)jObject["highScore"];
+                    characterPanelScript.PanelActive(true);
                     GetGameRank();
                 }
                 else
