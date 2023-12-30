@@ -3,6 +3,18 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class UpdateGameHighScore
+{
+    public string email;
+    public long newScore;
+
+    public UpdateGameHighScore(string email, long newScore)
+    {
+        this.email = email;
+        this.newScore = newScore;
+    }
+}
 public class GameHighScoreHttpRequest : MonoBehaviour
 {
     private List<GameCharacterRankInfo> gameCharacterRankInfos = new List<GameCharacterRankInfo>();
@@ -38,6 +50,35 @@ public class GameHighScoreHttpRequest : MonoBehaviour
             catch (Exception e)
             {
                 Debug.Log(e.Message);
+
+            }
+        }));
+    }
+
+    public void SetGameHighScore(long newScore)
+    {
+        UpdateGameHighScore updateGameHighScore = new UpdateGameHighScore(UserInfo.Email, newScore);
+        string json = JsonUtility.ToJson(updateGameHighScore);
+
+        StartCoroutine(WebRequestScript.WebRequestPostIE("/game/gameHighScore",json, (answer) =>
+        {
+            try
+            {
+                JObject jObject = JObject.Parse(answer);
+
+                if (jObject["isSetGameHighScore"].ToString().Equals("true"))
+                {
+                    Debug.Log("게임 캐릭터 정보 업데이트가 성공하였습니다..");
+                    GetGameRank();
+                }
+                else
+                {
+                    Debug.Log("게임 캐릭터 정보 업데이트가 실패하였습니다.");
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Log("웹과 통신에 실패하였습니다.");
 
             }
         }));

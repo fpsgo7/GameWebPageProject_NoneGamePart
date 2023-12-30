@@ -99,19 +99,7 @@ public class LobbyScript : MonoBehaviour
     public void InputScoreButton_Click()
     {
         int newScore = int.Parse(characterScreenPanel.gameScoreInputField.text);
-        if (gameHighScoreMysql.createGameHighScore(UserInfo.Email, GameCharacterInfo.Nickname, newScore) != 1)
-        {
-            if(gameHighScoreMysql.updateGameScore(UserInfo.Email, newScore) != 1)
-            {
-                characterScreenPanel.inputGameScoreFaildText.SetActive(true);
-            }
-        }
-        int score = gameCharacterMysql.updateGameCharacter_highScore(newScore, UserInfo.Email);
-        if(score != -1)
-        {
-            GameCharacterInfo.HighScore = score;
-        }
-        GameRankRefreshButton_Click();
+        gameHighScoreHttpRequest.SetGameHighScore(newScore);
     }
 
     /// <summary>
